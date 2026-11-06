@@ -23,12 +23,12 @@ For both installation options, first set up the environment as described above.
 1. **Installation from github**
 
        # install this package
-       pip install git+https://github.com/jlo031/CDSE
+       pip install git+https://github.com/jlo031/cdse
 
 2. **Local installation**
 
        # clone the repository
-       git clone git@github.com:jlo031/CDSE
+       git clone git@github.com:jlo031/cdse
 
    Change into the main directory of the cloned repository (it should contain the *setup.py* file) and install the library:
 
@@ -44,33 +44,8 @@ The download functions require your CDSE user credentials. It is recommended to 
     CDSE_USER='your-CDSE-user-name'
     CDSE_PASSWORD='your-CDSE-password'
 
-You can now read your username and passord from this file using the *python-dotenv* package using a function implemented in *CDSE.utils*:
-
-    # read your user credentials from '.env'
-    import CDSE.utils as CDSE_utils
-    username, password = CDSE_utils.get_user_and_passwd('path-to-your-.env-file')
-
-
-
-You can search for specific products by name, products intersecting with given lat/lon coordinates, or products intersecting with an area of interest saved in geoJSON format.
-
-Below is an example of how to search and download a specific product by name. For further examples and tests of the code, refer to the *examples* folder.
-
-    # import main module
-    import CDSE.search_and_download as CDSE_sd
-
-    # search for specific product by name
-    product_name = 'S1A_EW_GRDM_1SDH_20220602T073727_20220602T073831_043481_05310C_53F3'
-    response_json = CDSE_sd.search_CDSE_catalogue_by_name(product_name)
-
-    # download the found product
-    product = response_json['value'][0]
-    download_dir = 'path-to-your-download-directory'
-    CDSE_sd.download_product_from_cdse(product, download_dir, username, password)
-
-
-
-
+TO DO:
+use cdse.catalogue to search for data and cdse.download to download products.
 
 
 
